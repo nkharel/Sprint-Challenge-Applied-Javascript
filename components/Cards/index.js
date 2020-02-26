@@ -24,23 +24,12 @@ axios.get("https://lambda-times-backend.herokuapp.com/articles")
         let allTopics = response.data.articles;
         let topics = Object.values(allTopics);
         let topicNames = Object.keys(allTopics);
-        // console.log("all" + allTopics);
-        // console.log("keys: " + topicNames);
-        // console.log(topics);
         topics.forEach(topic => {
 
             topic.forEach(article => {
-                // console.log(topic);
-                // if parent of article is equal to "something"
-                //add attibute of "something"
-
-                //if AllTopics[i].includes(article) => add attribute
                 for (let i=0; i<topicNames.length; i++){
                     let currentTopic = topicNames[i]
-                    
-                    // console.log(topicName[i]);
                     if (allTopics[currentTopic].includes(article)){
-                        // console.log(currentTopic);
                         article["data-topic"] = currentTopic;
   
                     }
@@ -93,3 +82,4 @@ function createCard(art) {
     card.appendChild(author);
 
     return card;
+}
